@@ -1,5 +1,6 @@
 package lunatix.fibpaymcp.mcp;
 
+import jakarta.validation.Valid;
 import lunatix.fibpaymcp.api.payment.CancelPaymentService;
 import lunatix.fibpaymcp.api.payment.CheckPaymentService;
 import lunatix.fibpaymcp.api.payment.CreatePaymentService;
@@ -26,7 +27,7 @@ public class PaymentToolsService {
     }
 
     @Tool(name = "payment", description = "should create payment")
-    public CreatePaymentService.CreatePaymentResponse createPayment(CreatePaymentService.CreatePaymentRequest request) {
+    public CreatePaymentService.CreatePaymentResponse createPayment(@Valid CreatePaymentService.CreatePaymentRequest request) {
         return createPaymentService.execute(request);
     }
 

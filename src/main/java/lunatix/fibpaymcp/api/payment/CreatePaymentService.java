@@ -5,6 +5,11 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.UUID;
 
+import jakarta.annotation.Nullable;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
@@ -32,12 +37,12 @@ public class CreatePaymentService {
     }
 
     public record CreatePaymentRequest(
-            MonetaryValue monetaryValue,
+            @NotNull MonetaryValue monetaryValue,
             URI statusCallbackUrl,
-            String description,
-            Duration expiresIn,
-            PaymentCategory category,
-            Duration refundableFor
+            @Nullable @Size(max = 50) String description,
+            @Nullable Duration expiresIn,
+            @Nullable PaymentCategory category,
+            @Nullable Duration refundableFor
     ) {
     }
 
