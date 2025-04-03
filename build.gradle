@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'lunatix'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
     toolchain {
@@ -24,6 +24,7 @@ ext {
 dependencies {
     implementation 'org.springframework.ai:spring-ai-mcp-server-spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
