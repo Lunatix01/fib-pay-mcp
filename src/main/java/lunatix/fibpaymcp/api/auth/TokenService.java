@@ -34,7 +34,7 @@ public class TokenService {
 
 
     private boolean isTokenExpired() {
-        return accessToken == null || expiresAt.isAfter(Instant.now());
+        return accessToken == null || expiresAt.isBefore(Instant.now());
     }
 
     private void refreshTokenIfNecessary() {
