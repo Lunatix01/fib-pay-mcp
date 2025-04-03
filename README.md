@@ -7,7 +7,7 @@ A lightweight Model-Context-Protocol (MCP) server for interacting with `First Ir
 
 ## Installation (Claude.ai)
 1. Set the required environment variables.
-2. Download the JAR file.
+2. Download the JAR file, or build it on your system.
 3. Update `claude_desktop_config.json` in **Claude Desktop App**:
     - Navigate to **File → Settings → Developer → Edit Config**.
     - Modify the configuration:
