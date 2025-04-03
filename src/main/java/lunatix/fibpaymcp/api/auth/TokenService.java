@@ -61,7 +61,7 @@ public class TokenService {
         final var responseBody = getTokenInformation();
         assert responseBody != null;
         this.accessToken = responseBody.accessToken;
-        this.expiresAt = Instant.ofEpochMilli(responseBody.expiresIn);
+        this.expiresAt = Instant.now().plusSeconds(responseBody.expiresIn);
     }
 
     public record ResponseBody(
