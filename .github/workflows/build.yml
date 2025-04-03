@@ -36,8 +36,9 @@ jobs:
         id: get_release
         uses: joutvhu/get-release@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload artifact to latest release
         uses: softprops/action-gh-release@v2
