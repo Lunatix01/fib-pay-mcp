@@ -12,7 +12,7 @@ jobs:
           distribution: oracle
           java-version: 21
       - name: Build
-        run: mvn -f pom.xml clean package -DskipTests
+        run: gradle build
       - name: Upload build artifact
         if: github.ref_name == 'master'
         uses: actions/upload-artifact@v4
