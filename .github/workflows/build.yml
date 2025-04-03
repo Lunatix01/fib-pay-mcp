@@ -40,10 +40,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create Git tag
+        run: |
+          TAG_NAME=$(date +'%Y%m%d-%H%M%S')
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+
       - name: Upload artifact to latest release
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ steps.get_release.outputs.tag_name }}
+          tag_name: ${{ github.ref_name }}
           files: ./build/libs/*.jar
-          overwrite: true
